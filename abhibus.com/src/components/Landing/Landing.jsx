@@ -9,12 +9,13 @@ import {Frequentlytrains} from '../faqs/Frequentlytrains';
 import {Social} from '../social/Social'
 import {Footers} from '../Footer1/Footers';
 import {Footertwo} from '../Footer2/Footertwo'
+import { Footerthree } from '../Footer3/Footerthree';
 
-const Landing =() =>{
+const Landing =({setFlag}) =>{
     return(
         <>
         <Navbar/>
-        <Searchbar/>
+        <Searchbar setFlag={setFlag}/>
         <Links/>
          <Easypay/>
          <Howtobooktrain/>
@@ -24,6 +25,7 @@ const Landing =() =>{
          <Social/>
          <Footers/>
          <Footertwo/>
+         <Footerthree/>
          </>
     )
 }

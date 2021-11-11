@@ -1,0 +1,27 @@
+.trainfilter-grid-s{
+    display: grid;
+    grid-template-columns: 25% 70%;
+    grid-gap: 5%;
+    width: 84%;
+    margin: auto;
+}
+.filter-image-train-grid-s{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.filter-image-train-grid-s>div{
+    padding:10% 35% 10% 35%;
+    border: 1px solid rgb(218, 218, 218);
+}
+.pointer{
+    cursor:pointer;
+}
+.gray-background{
+    background-color:#f8f8f8;
+}
+.white-background{
+    background-color:white;
+}
+
+/* list side */
+

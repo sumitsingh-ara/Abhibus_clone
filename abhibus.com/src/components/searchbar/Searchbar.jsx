@@ -1,10 +1,12 @@
 import "./searchbar.css";
 import { useState } from "react";
-const Searchbar = () => {
+const Searchbar = ({setFlag}) => {
   const [opener, setOpener] = useState(1);
   const [sourceTrain,setSourceTrain] = useState("");
   const [destTrain,setDestTrain] = useState("");
   const [trainJourneyDate,setTrainJourneyDate] = useState("");
+  const [data,setData] = useState([]);
+  
   const handleSource =(e)=>{
       setSourceTrain(e.target.value)
   }
@@ -64,6 +66,7 @@ const Searchbar = () => {
             />
             <label> Train Info</label>
           </span>
+          <form >
           <div className="main-searchbox">
             {opener === 1 ? (
               <div className="book-tickets">
@@ -83,6 +86,7 @@ const Searchbar = () => {
                         type="text"
                         value={sourceTrain}
                         onChange={handleSource}
+                        required
                       />
                     </div>
                   </div>
@@ -103,6 +107,7 @@ const Searchbar = () => {
                         className="remove-border-s"
                         type="text"
                         value={destTrain}
+                        required
                         onChange={handleDeparture}
                       />
                     </div>
@@ -115,12 +120,16 @@ const Searchbar = () => {
                     <input style={{ height: "30px",border:"none" }}
                         className="remove-border-s" type="date"
                         value={trainJourneyDate}
+                        min="2021-11-13"
+                        required
                         onChange={handleTrainJourneyDate}
                          /></div>
                 </div>
                 <div>
                   {" "}
-                  <button className ="searchTrainsfirst-s">Search Trains</button>
+                  <button onClick={()=>{
+                    setFlag(true)
+                  }} className ="searchTrainsfirst-s">Search Trains</button>
                 </div>
               </div>
             ) : // below will be pnr
@@ -144,6 +153,7 @@ const Searchbar = () => {
             </div>
             )}
           </div>
+          </form>
         </div>
       </div>
     </>
