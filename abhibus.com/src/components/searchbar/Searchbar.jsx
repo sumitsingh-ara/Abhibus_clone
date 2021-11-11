@@ -1,12 +1,11 @@
 import "./searchbar.css";
 import { useState } from "react";
-const Searchbar = ({setFlag}) => {
+const Searchbar = ({setFlag,setData}) => {
   const [opener, setOpener] = useState(1);
   const [sourceTrain,setSourceTrain] = useState("");
   const [destTrain,setDestTrain] = useState("");
   const [trainJourneyDate,setTrainJourneyDate] = useState("");
-  const [data,setData] = useState([]);
-  
+ 
   const handleSource =(e)=>{
       setSourceTrain(e.target.value)
   }
@@ -15,6 +14,19 @@ const Searchbar = ({setFlag}) => {
   }
   const handleTrainJourneyDate=(e)=>{
     setTrainJourneyDate(e.target.value)
+  }
+  function getData(){
+    async function getter(){
+      try{
+        let data = await fetch(`http://localhost:7448/trains/${sourceTrain}/${destTrain}`);
+      let x = await data.json();
+          setData(x);
+          setFlag(true)
+      }catch(err) {
+        console.log(err.message);
+      }
+    }
+    getter();
   }
 
   return (
@@ -66,7 +78,7 @@ const Searchbar = ({setFlag}) => {
             />
             <label> Train Info</label>
           </span>
-          <form >
+          
           <div className="main-searchbox">
             {opener === 1 ? (
               <div className="book-tickets">
@@ -128,7 +140,10 @@ const Searchbar = ({setFlag}) => {
                 <div>
                   {" "}
                   <button onClick={()=>{
-                    setFlag(true)
+                    if(sourceTrain && destTrain){
+                      getData()
+                    }
+                    
                   }} className ="searchTrainsfirst-s">Search Trains</button>
                 </div>
               </div>
@@ -153,7 +168,7 @@ const Searchbar = ({setFlag}) => {
             </div>
             )}
           </div>
-          </form>
+         
         </div>
       </div>
     </>

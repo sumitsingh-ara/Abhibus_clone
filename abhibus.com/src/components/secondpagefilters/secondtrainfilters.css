@@ -24,4 +24,30 @@
 }
 
 /* list side */
-
+.train-list-grid-s{
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: 30% 50% 16%;
+    grid-gap: 2%;
+    padding: 1%;
+    margin-bottom: 2%;
+}
+.insider-list-train-s{
+    display: grid;
+    grid-template-columns: 15% 75%;
+    grid-gap: 5%;
+}
+.innerlist-train-secondgrid-s{
+    display: grid;
+    grid-template-columns:22% 22% 22% 22%;
+    grid-gap: 2%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+}
+.innerlist-train-secondgrid-s>div{
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+}

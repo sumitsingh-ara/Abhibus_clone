@@ -11,11 +11,11 @@ import {Footers} from '../Footer1/Footers';
 import {Footertwo} from '../Footer2/Footertwo'
 import { Footerthree } from '../Footer3/Footerthree';
 
-const Landing =({setFlag}) =>{
+const Landing =({setFlag,setData}) =>{
     return(
         <>
         <Navbar/>
-        <Searchbar setFlag={setFlag}/>
+        <Searchbar setFlag={setFlag} setData={setData}/>
         <Links/>
          <Easypay/>
          <Howtobooktrain/>

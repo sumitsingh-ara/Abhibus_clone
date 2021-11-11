@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       {!flag ?
-      <Landing setFlag={setFlag}/>
-      :<Secondlanding/>}
+      <Landing setFlag={setFlag} setData={setData}/>
+      :<Secondlanding data={data}/>}
     </div>
   );
 }
