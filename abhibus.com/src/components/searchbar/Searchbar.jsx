@@ -1,9 +1,8 @@
 import "./searchbar.css";
 import { useState } from "react";
-const Searchbar = ({setFlag,setData}) => {
+const Searchbar = ({setFlag,setData,setSourceTrain,setDestTrain,sourceTrain,destTrain}) => {
   const [opener, setOpener] = useState(1);
-  const [sourceTrain,setSourceTrain] = useState("");
-  const [destTrain,setDestTrain] = useState("");
+  
   const [trainJourneyDate,setTrainJourneyDate] = useState("");
  
   const handleSource =(e)=>{

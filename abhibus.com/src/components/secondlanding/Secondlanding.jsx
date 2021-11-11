@@ -1,14 +1,13 @@
 
 import {Navbar} from '../Navbar/Navbar';
-import {Secondsearch} from '../secondsearch/Secondsearch'
+//import {Secondsearch} from '../secondsearch/Secondsearch'
 import {Secondtrainfilters} from '../secondpagefilters/Secondtrainfilters'
-const Secondlanding = ({data})=>{
+const Secondlanding = ({data,sourceTrain,destTrain})=>{
 
     return(
         <>
         <Navbar/>
-        <Secondsearch/>
-        <Secondtrainfilters data={data}/>
+        <Secondtrainfilters data={data} sourceTrain={sourceTrain} destTrain={destTrain}/>
         </>
     )
 }
