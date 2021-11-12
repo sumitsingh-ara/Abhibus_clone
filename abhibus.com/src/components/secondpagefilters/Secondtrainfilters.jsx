@@ -16,11 +16,16 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
   const [sortbyduration, setSortByDuration] = useState(false);
   const [flag, setFlag] = useState(false);
   const [selectedTrain, setSelectedTrain] = useState(null);
-  const [paymentFlag,setPaymentFlag] = useState(true);
+  const [paymentFlag,setPaymentFlag] = useState(false);
+  const [toggler,setToggler] = useState(false);
   useEffect(() => {
     getData();
   }, [sortbydepart, sortbyarrival, sortbyduration]);
-
+  useEffect(() => {
+    if(toggler){
+      getDatas()
+    }
+  }, [toggler])
   function getData() {
     async function getter() {
       var data;
@@ -53,6 +58,17 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
     setSortByDepart(false);
     setSortByArrival(false);
     setSortByDuration(false);
+  }
+  const [datas,setDatas] = useState(null);
+  function getDatas() {
+      async function getter() {
+          let x = await fetch(`http://localhost:7448/trains/${selectedTrain}`)
+          let data = await x.json();
+              let y = data.trains;
+              setDatas(y)
+              setPaymentFlag(true);
+      }
+      getter();
   }
 
   return (
@@ -351,6 +367,7 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                             style={{ backgroundColor: "green" }}
                             onClick={() => {
                               setSelectedTrain(e._id)
+                              setToggler(true);
                             }}
                           >
                             Book Ticket
@@ -374,6 +391,7 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                             style={{ backgroundColor: "green" }}
                             onClick={() => {
                               setSelectedTrain(e._id)
+                              setToggler(true);
                             }}
                           >
                             Book Ticket
@@ -397,6 +415,7 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                             style={{ backgroundColor: "green" }}
                             onClick={() => {
                               setSelectedTrain(e._id)
+                              setToggler(true);
                             }}
                           >
                             Book Ticket
@@ -420,6 +439,7 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                             style={{ backgroundColor: "green" }}
                             onClick={() => {
                               setSelectedTrain(e._id)
+                              setToggler(true);
                             }}
                           >
                             Book Ticket
@@ -742,7 +762,7 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
       <Footerthree />
       </>
         :<>
-        <Paymentproceederone  selectedTrain={selectedTrain} setSelectedTrain={setSelectedTrain} />
+        <Paymentproceederone datas={datas}  selectedTrain={selectedTrain} setSelectedTrain={setSelectedTrain} />
         </>}
     </>
   );

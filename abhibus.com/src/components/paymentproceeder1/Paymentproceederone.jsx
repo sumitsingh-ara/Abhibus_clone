@@ -1,14 +1,35 @@
 import './trainpaymentone.css';
 import { useEffect,useState } from 'react';
+import {Social} from '../social/Social'
+import {Footers} from '../Footer1/Footers';
+import {Footertwo} from '../Footer2/Footertwo'
+import { Footerthree } from '../Footer3/Footerthree';
 
-const Paymentproceederone =() =>{
+const Paymentproceederone =({selectedTrain,setSelectedTrain,datas}) =>{
+   
 
     const[user,setUser] = useState("Sumit");
     const[userFlag,setUserFlag] = useState(false);
-
+    const [date,setDate] = useState(null)
+   function getCurrentDate(separator=''){
+        let newDate = new Date()
+        let date = newDate.getDate();
+        let month = newDate.getMonth() + 1;
+        let year = newDate.getFullYear();
+        
+         let a =(`${date}-${month<10?`0${month}`:`${month}`}-${year}`)
+         setDate(a)
+         return
+        }
+        useEffect(() => {
+           getCurrentDate()
+        }, [])
     return(
         <>
         <div className="train-payment-one-s-main">
+            {/* <button onClick={() =>{
+                getData()
+            }}>Hitter</button> */}
                 <div className="pt-4 pb-4">
                     <h4>Passenger Details</h4>
                 </div>
@@ -147,18 +168,56 @@ const Paymentproceederone =() =>{
                            
                             </div>
                         </div>
-                        <div style={{height:"500px"}}>Righty</div>
-                        <div className="text-center pt-5">
-                            <div className="text-center" style={{display:"flex",textAlign:"center"}}>
-                                <div><input type="checkbox" /></div>
-                                <div className="text-center"><label>I agree to Terms and Conditions, Travel Guidelines and Cancellation Policy</label></div>
-                                
+                        {/* right side */}
+                        <div className="border"  style={{backgroundColor:"#fcfafa"}}>
+                            <div className="border p-4"><strong>Journey Details</strong></div>
+                            <div className="border p-4" style={{display: "grid",gridTemplateColumns:"15% 80%"}}>
+                                <div><img src="https://www.abhibus.com/trains/images/train-b-icon.png" alt="trainpic" />
                                 </div>
+                                    <div><div>{datas.train_number}</div>
+                                    <div>{datas.train_name}</div>
+                                    <div>{date} | 2A | GN</div>
+                                    <div>Current Status:- <span className="text-success">{datas.seat_availability.second_ac}</span></div>
+                                </div>
+                            </div>
+                            <div className="border p-4">
+                                <div><strong>Boarding Point</strong></div>
+                                <div className="text-center border mt-2">Source Station:-{datas.source_station.toUpperCase()}</div>
+                            </div>
+                            <div className="border p-4">
+                                <div>Source Station:-{datas.source_station.toUpperCase()}</div>
+                                <div className=" ">
+                                    <div>| &nbsp;&nbsp;&nbsp;&nbsp; {datas.departure_time}</div>
+                                    <div>|</div>
+                                    <div>|</div>
+                                    <div>|</div>
+                                    <div>| &nbsp;&nbsp;&nbsp;&nbsp; {datas.duration}</div>
+                                    <div>|</div>
+                                    <div>|</div>
+                                    <div>|</div>
+                                    <div>| &nbsp;&nbsp;&nbsp;&nbsp; {datas.arrival_time}</div>
+                                </div>
+                                <div>Source Station:-{datas.source_station.toUpperCase()}</div>
+                            </div>
+                        </div>
+                        {/* lower part of lefty */}
+                        <div className="text-center p-5">
+                            <div style={{alignItems:"center",verticalAlign:"center"}}>
+                            <input className="mt-1" type="checkbox"/>
+                                <span>I agree to Terms and Conditions, Travel Guidelines and Cancellation Policy</span>
+                                </div>
+                                <div className="text-center pt-3">
+                            <button className="btn btn-danger px-4 py-2" style={{fontSize:"1.3rem"}}>Continue Payment</button>
+                        </div>
                         </div>
                         {/* below for right side */}
                         <div>right belower</div>
                 </div>
         </div>
+        <Social/>
+         <Footers/>
+         <Footertwo/>
+         <Footerthree/>
         </>
     )
 }

@@ -48,4 +48,15 @@ router.get("/sortbydepart/:source/:destination",async(req,res)=>{
     }
 
 })
+
+//get train details by id;
+router.get("/:id",async(req,res)=>{
+    try{
+        const trains = await Trains.findById(req.params.id).lean().exec()
+    return res.status(200).send({trains});
+    }catch(err) {
+        console.log("yahan se")
+        console.log(err.message)
+    }
+})
 module.exports = router;
