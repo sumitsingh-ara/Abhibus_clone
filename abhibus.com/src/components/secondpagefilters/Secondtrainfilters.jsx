@@ -31,21 +31,21 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
       var data;
       if (sortbyduration === true) {
         data = await fetch(
-          `http://localhost:7448/trains/sortbyduration/${sourceTrain}/${destTrain}`
+          `http://localhost:2924/trains/sortbyduration/${sourceTrain}/${destTrain}`
         );
         let x = await data.json();
         setDataLocal(x);
         setFlag(true);
       } else if (sortbyarrival === true) {
         data = await fetch(
-          `http://localhost:7448/trains/sortbyarrival/${sourceTrain}/${destTrain}`
+          `http://localhost:2924/trains/sortbyarrival/${sourceTrain}/${destTrain}`
         );
         let x = await data.json();
         setDataLocal(x);
         setFlag(true);
       } else if (sortbydepart === true) {
         data = await fetch(
-          `http://localhost:7448/trains/sortbydepart/${sourceTrain}/${destTrain}`
+          `http://localhost:2924/trains/sortbydepart/${sourceTrain}/${destTrain}`
         );
         let x = await data.json();
         setDataLocal(x);
@@ -62,7 +62,7 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
   const [datas,setDatas] = useState(null);
   function getDatas() {
       async function getter() {
-          let x = await fetch(`http://localhost:7448/trains/${selectedTrain}`)
+          let x = await fetch(`http://localhost:2924/trains/${selectedTrain}`)
           let data = await x.json();
               let y = data.trains;
               setDatas(y)

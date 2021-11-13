@@ -46,6 +46,10 @@ const Paymentproceederone = ({ selectedTrain, setSelectedTrain, datas }) => {
   const handleAdd = () => {
     setPassangers([...passangers, payload]);
     setCount(count+1)
+    setAge("")
+    setName("")
+    setGender("")
+    setBirth("")
   };
   const remove =(id)=>{
     let deta = passangers.filter((e)=>e.id !== id);
