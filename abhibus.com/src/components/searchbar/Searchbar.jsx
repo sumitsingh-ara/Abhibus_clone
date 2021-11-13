@@ -14,6 +14,7 @@ const Searchbar = ({setFlag,setData,setSourceTrain,setDestTrain,sourceTrain,dest
   const handleTrainJourneyDate=(e)=>{
     setTrainJourneyDate(e.target.value)
   }
+  
   function getData(){
     async function getter(){
       try{
@@ -21,6 +22,7 @@ const Searchbar = ({setFlag,setData,setSourceTrain,setDestTrain,sourceTrain,dest
       let x = await data.json();
           setData(x);
           setFlag(true)
+          
       }catch(err) {
         console.log(err.message);
       }
@@ -141,8 +143,8 @@ const Searchbar = ({setFlag,setData,setSourceTrain,setDestTrain,sourceTrain,dest
                   <button onClick={()=>{
                     if(sourceTrain && destTrain){
                       getData()
+                      
                     }
-                    
                   }} className ="searchTrainsfirst-s">Search Trains</button>
                 </div>
               </div>

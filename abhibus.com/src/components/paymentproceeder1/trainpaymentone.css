@@ -21,3 +21,6 @@
     display: grid;
     grid-template-columns:20% 15% 15% 20% 15% 5%;
 }
+.train-passenger-list-s{
+    align-items: center;
+}
