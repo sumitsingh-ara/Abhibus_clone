@@ -367,7 +367,7 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                             style={{ backgroundColor: "green" }}
                             onClick={() => {
                               setSelectedTrain(e._id)
-                              setToggler(true);
+                              setToggler(!toggler);
                             }}
                           >
                             Book Ticket
@@ -391,7 +391,7 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                             style={{ backgroundColor: "green" }}
                             onClick={() => {
                               setSelectedTrain(e._id)
-                              setToggler(true);
+                              setToggler(!toggler);
                             }}
                           >
                             Book Ticket
@@ -415,7 +415,7 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                             style={{ backgroundColor: "green" }}
                             onClick={() => {
                               setSelectedTrain(e._id)
-                              setToggler(true);
+                              setToggler(!toggler);
                             }}
                           >
                             Book Ticket
@@ -439,7 +439,7 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                             style={{ backgroundColor: "green" }}
                             onClick={() => {
                               setSelectedTrain(e._id)
-                              setToggler(true);
+                              setToggler(!toggler);
                             }}
                           >
                             Book Ticket
@@ -593,6 +593,10 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                           <div
                             className="pointer"
                             style={{ backgroundColor: "green" }}
+                            onClick={() => {
+                              setSelectedTrain(e._id)
+                              setToggler(!toggler);
+                            }}
                           >
                             Book Ticket
                           </div>
@@ -613,6 +617,10 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                           <div
                             className="pointer"
                             style={{ backgroundColor: "green" }}
+                            onClick={() => {
+                              setSelectedTrain(e._id)
+                              setToggler(!toggler);
+                            }}
                           >
                             Book Ticket
                           </div>
@@ -633,6 +641,10 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                           <div
                             className="pointer"
                             style={{ backgroundColor: "green" }}
+                            onClick={() => {
+                              setSelectedTrain(e._id)
+                              setToggler(!toggler);
+                            }}
                           >
                             Book Ticket
                           </div>
@@ -653,6 +665,10 @@ const Secondtrainfilters = ({ data, sourceTrain, destTrain }) => {
                           <div
                             className="pointer"
                             style={{ backgroundColor: "green" }}
+                            onClick={() => {
+                              setSelectedTrain(e._id)
+                              setToggler(!toggler);
+                            }}
                           >
                             Book Ticket
                           </div>
